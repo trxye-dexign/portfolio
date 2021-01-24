@@ -6,9 +6,36 @@
   <link rel="stylesheet" href="style.css" >
   <link rel="stylesheet" href="media.css" >
   <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet'>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-  <title>Syota Nakatani Portfolio</title>
+	<title>Syota Nakatani Portfolio</title>
+	<script>
+    $(function() {
+      $('.nav-item>a').click(function() {
+        $('#drawer-check').removeAttr('checked').prop('checked', false).change();
+      });
+    });
+    
+    // フェードインアニメーション設定 //
+      window.onload = function() {
+        scroll_effect();
+        
+        $(window).scroll(function(){
+          scroll_effect();
+        });
+        
+        function scroll_effect(){
+          $('.animation').each(function(){
+            var elemPos = $(this).offset().top;
+            var scroll = $(window).scrollTop();
+            var windowHeight = $(window).height();
+            if(scroll > elemPos - windowHeight){
+              $(this).addClass('scrollin');
+            }
+          });
+        };
+      };
+  </script>
 </head>
 
 <body>
@@ -189,7 +216,5 @@
           </ul>
         </nav>
 		</footer>
-		
-		<script src="script.js"></script>
 </body>
 </html>
