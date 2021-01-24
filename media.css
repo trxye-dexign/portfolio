@@ -54,7 +54,7 @@
   transform: rotate(-45deg);
 }
 
-#drawer-check:checked .nav {
+#drawer-check:checked ~ .nav {
   right: 50%;
 }
 
